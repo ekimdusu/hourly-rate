@@ -37,4 +37,4 @@ if inputGender:
     inputGenderMultiplier = dfGenderMultipliers[dfGenderMultipliers["Gender"] == inputGender].values[0][1]
 
 if st.button("Show my hourly rates"):
-    st.header("{} $ / hour".format(round(inputAgeMultiplier*inputCategoryMultiplier*inputCountryMultiplier*inputGenderMultiplier)))
+    st.header("{} € / hour".format(round(inputAgeMultiplier*inputCategoryMultiplier*inputCountryMultiplier*inputGenderMultiplier)))
