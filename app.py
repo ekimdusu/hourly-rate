@@ -5,7 +5,7 @@ dfHouryRates = pd.read_csv('hourly_rates.csv')
 profession = dfHouryRates["Profession"].unique()
 
 dfCountryMultipliers = pd.read_csv('country_multipliers.csv')
-country = dfCountryMultipliers["Country"].unique()
+country = dfCountryMultipliers["Countries & Regions"].unique()
 
 dfAgeMultipliers = pd.read_csv('age_multipliers.csv')
 age = dfAgeMultipliers["Age Ranges"].unique()
@@ -24,9 +24,9 @@ inputCategory = st.selectbox("Profession", sorted(profession))
 if inputCategory:
     inputCategoryMultiplier = dfHouryRates[dfHouryRates["Profession"] == inputCategory].values[0][1]
 
-inputCountry = st.selectbox("Country", sorted(country))
+inputCountry = st.selectbox("Countries & Regions", sorted(country))
 if inputCountry:
-    inputCountryMultiplier = dfCountryMultipliers[dfCountryMultipliers["Country"] == inputCountry].values[0][1]
+    inputCountryMultiplier = dfCountryMultipliers[dfCountryMultipliers["Countries & Regions"] == inputCountry].values[0][1]
 
 inputAge = st.selectbox("Age", sorted(age))
 if inputAge:
@@ -37,4 +37,4 @@ if inputGender:
     inputGenderMultiplier = dfGenderMultipliers[dfGenderMultipliers["Gender"] == inputGender].values[0][1]
 
 if st.button("Show my hourly rates"):
-    st.header("{} $ / hour".format(round(inputAgeMultiplier*inputCategoryMultiplier*inputCountryMultiplier*inputGenderMultiplier, 1)))
+    st.header("{} $ / hour".format(round(inputAgeMultiplier*inputCategoryMultiplier*inputCountryMultiplier*inputGenderMultiplier)))
